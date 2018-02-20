@@ -1,0 +1,22 @@
+{
+  "name": "watermarkmodule",
+  "version": "1.0.0",
+  "description": "A module that adds text and image watermarks to images",
+  "main": "watermark.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexmoschos/WatermarkModule.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexmoschos/WatermarkModule/issues"
+  },
+  "homepage": "https://github.com/alexmoschos/WatermarkModule#readme",
+  "dependencies": {
+    "gm": "^1.23.1"
+  }
+}
