@@ -66,7 +66,7 @@ function addTextWatermark(sourcePath, destinationPath, text) {
                 imageMagick(sourcePath)
                     // WATERMARK - PARAM ORDER: [X Pos, Y Pos, width, height]
                     .fill('rgba(0, 0, 0, 0.5)')
-                    .fontSize(0.1*width)
+                    .fontSize(Math.floor(0.1*width))
                     .stroke("rgba(255, 255, 255, 0.4)", 2)
                     //.fill("#888")
                     .drawText(0, 0, text,'Center')
