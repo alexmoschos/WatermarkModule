@@ -37,21 +37,13 @@ function applyWatermark(sourcePath, destinationPath) {
                         }
                     });
             }
-        })
-    })
-
-};
+        });
+    });
+}
 
 function addTextWatermark(sourcePath, destinationPath, text) {
     return new Promise((resolve, reject) => {
-        var width = 0;
-        imageMagick(sourcePath).size(function (err, size) {
-            if (!err) {
-                width = size.width;
-                console.log('width = ' + size.width);
-          }
-        });
-        //return width;
+        let width = 0;
         imageMagick(sourcePath).size(function(err, value) {
             if (err) {
                 reject(err);
@@ -64,16 +56,10 @@ function addTextWatermark(sourcePath, destinationPath, text) {
                 };
                 // Apply watermark
                 imageMagick(sourcePath)
-                    // WATERMARK - PARAM ORDER: [X Pos, Y Pos, width, height]
                     .fill('rgba(0, 0, 0, 0.5)')
-                    .fontSize(Math.floor(0.1*width))
+                    .fontSize(Math.ceil(0.1*value.width))
                     .stroke("rgba(255, 255, 255, 0.4)", 2)
-                    //.fill("#888")
                     .drawText(0, 0, text,'Center')
-                    // .drawText(10,10,'HappyKidz','Center')
-                    // .fontSize( 1000000000 )
-                    // .draw(['-pointsize 200'])
-                    // RESIZE DIMENSIONS - PARAM ORDER: [width, height]
                     .resize(value.width, value.height, null)
                     .write(destinationPath, function(err, stdout, stderr, command) {
                         if (err) {
