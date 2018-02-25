@@ -58,6 +58,7 @@ function addTextWatermark(sourcePath, destinationPath, text) {
                 imageMagick(sourcePath)
                     .fill('rgba(0, 0, 0, 0.5)')
                     .fontSize(Math.ceil(0.1*value.width))
+                    .font(__dirname + '/font-regular.ttf')
                     .stroke("rgba(255, 255, 255, 0.4)", 2)
                     .drawText(0, 0, text,'Center')
                     .resize(value.width, value.height, null)
